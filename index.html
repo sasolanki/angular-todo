@@ -1,0 +1,49 @@
+<html>
+
+<head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.4/angular.min.js"></script>
+    <script src="https://rawgithub.com/angular-ui/ui-sortable/master/src/sortable.js"></script>
+    <script src="todoController.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+</head>
+
+<body>
+    <div ng-app="todoApp" ng-controller="todoController" class="container">
+        <h2>Angular To-do Application</h2>
+
+        <div class="row">
+            <form class="form-inline col-md-offset-1">
+                <div class="form-group">
+                    <input type="text" class="form-control" ng-model="todo" required ng-keypress="onEnter($event)" placeholder="What needs to be done">
+                </div>
+
+                <button type="button" class="btn btn-default" ng-click="AddTodo()">Add</button>
+            </form>
+        </div>
+        <div>
+            <div class="floatleft">
+                <h2>To-do</h2>
+                <div ui-sortable="todosOptionsList[0]" class="apps-container screen floatleft" ng-model="todos">
+                    <div class="app" ng-repeat="app in todos"> {{app}}</div>
+                </div>
+            </div>
+            <div class="floatright">
+                <h2>Completed</h2>
+                <div ui-sortable="todosOptionsList[1]" class="apps-container screen floatleft" ng-model="completed">
+                    <div class="app" ng-repeat="app in completed"> {{app}}</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="clear"></div>
+
+
+    </div>
+</body>
+
+</html>
